@@ -1,0 +1,379 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{\textbf{Stat3000 | Homework | Geometric, Negative Binomial, Uniform, Exponential Distributions}
+}
+\author{Rylei Mindrum | A02352206}
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+
+
+3.2 --- 1, 2ac, 5, 6a-c, 4.1 --- 1, 2, 4, 4.2 --- 2, 3
+
+\textbf{3.2}
+    \begin{enumerate}
+		\item If X has a geometric distribution with parameter p = 0.7, calculate:
+The Probability Mass Function of a geometric distribution: $P(X = k) = (1-p)^{k-1}p$ 
+p is the probability of success, k is the trial number of the first success
+                \begin{itemize}
+                  \item A. P(X = 4)
+\begin{proof}
+3.2.1 A) 
+$P(X=4)$
+$(1-.7)^{4-1}(.7)$
+$(.3)^{3}(.7)$
+$.027*.7$
+$.0189$
+\end{proof}
+                  \item B. P(X = 1)
+                  \begin{proof}
+3.2.1 B) 
+$P(X=1)$
+$(1-.7)^{1-1}(.7)$
+$1*.7$
+$.7$
+\end{proof}
+                  \item C. P(X ≤5)
+                  \begin{proof}
+3.2.1 C) 
+P(X<=5)
+The Cumulative Probability for X <= 5 is the sum of probabilities for X=1,2,3,4,5
+
+$P(X<=5) = \sum_{k=1}^{5} P(X=k)$
+
+$P(X=1)+P(X2)+P(X=3)+P(X=4)+P(X=5$) \\
+$P(X=1) = .7$ (From B) \\
+$P(X=2) = (1-.7)^{2-1}(.7) = (.3)^{1}*(.7) = .21$ \\
+$P(X=3) = (1-.7)^{3-1}(.7) = (.3)^{2}*(.7) = .063$ \\
+$P(X=4) = .0189$ (From A) \\
+$P(X=5) = (1-.7)^{5-1}(.7) = (.3)^{4}*(.7) = .00567$ \\
+
+$.7+.21+.063+.0189+.00567$
+$.99757$
+\end{proof}
+                  \item  D. P(X ≥8)
+                  \begin{proof}
+3.2.1 D) 
+P(X>=8) = 1-P(X<=7)
+P(X<=7) = P(X=1)+P(X=2)+P(X=3)+P(X=4)+P(X=5)+P(X=6)+P(X=7)
+
+From part C we know that 
+$P(X<=5)=.99757$
+$P(X=6) = (1-.7)^{6-1}(.7) = (.3)^{5}*(.7) = .001701 $
+$P(X=7) = (1-.7)^{6-1}(.7) = (.3)^{6}*(.7) = .0005103$
+
+$.99757+.001701+.0005103 = .9997813$
+
+$P(X>=8) = 1-.9997813 $
+$.0002187$
+\end{proof}
+                \end{itemize}
+		
+		\item  If X has a negative binomial distribution with parameters p = 0.6 and r = 3, calculate:
+The PMF of the Negative Binomial Distribution is:
+$P(X=k)= ({k-1 \atop r-1})p^{r}(1-p)^{k-r}$
+r is the number of successes
+k is the trial number
+p is the probability of success
+              \begin{itemize}
+                  \item A. P(X = 5)
+\begin{proof}
+3.2.2 A)
+$P(X=5)= ({5-1 \atop 3-1}).6^{3}(.4)^{5-3}$
+$({4 \atop 2}).216*.16$
+.20736
+\end{proof}
+                  \item C. P(X ≤7)
+\begin{proof}
+3.2.2 C)
+The Cumulative Probability is the sum of probabilities for 
+$X = 3,4,5,6,7$:
+$P(X<=7) = P(X=3)+P(X=4)+P(X=5)+P(X=6)+P(X=7)$
+$ P(X=3) =  ({3-1 \atop 3-1}).6^{3}(.4)^{3-3}=({3 \atop 2}).216*1 = .216$
+$P(X=4) = ({4-1 \atop 3-1}).6^{3}(.4)^{4-3}=({3 \atop 2}).216*.4 =  .0864$
+$P(X=5) = .20736$ (from A)
+$P(X=6) = ({6-1 \atop 3-1}).6^{3}(.4)^{6-3}=({5 \atop 2}).216*.064 = .013824$
+$P(X=7) =  ({7-1 \atop 3-1}).6^{3}(.4)^{7-3}=({6 \atop 2}).216*.0256 = .0055296$
+
+$.216+.0864+.20736+.013824+.0055296$
+$.9037$
+\end{proof}
+                \end{itemize}
+            \item Recall $(1-.7)^{6-1}(.7) = (.3)^{5}*(.7)$ Problem 3.1.4 where an archer hits a bull’s-eye with a probability of 0.09, and the results of different attempts can be taken to be independent of each other. 
+                \begin{itemize}
+                    \item (a) If the archer shoots a series of arrows, what is the probability that the first bull’s-eye is scored with the fourth arrow?
+\begin{proof}
+3.2.5 A)
+$P(X=4)$
+$(1-.09)^{3}(.09)$
+$(.91)^{3}(.09)$
+$.753571*.09$
+$.0678$
+\end{proof}
+                    \item (b) What is the probability that the third bull’s-eye is scored with the tenth arrow?
+\begin{proof}
+3.2.5 B)
+Solving with Binomial Distribution
+$ P(X=10) $
+$({10-1 \atop 3-1}).09^{3}(.91)^{10-3}$
+$({9 \atop 2})*.000729*.513342 $
+$36*.000729*.513342$
+$.0134$
+\end{proof}
+                    \item (c) What is the expected number of arrows shot before the first bull’s-eye is scored?
+\begin{proof}
+3.2.5 C)
+$E[X]= r/p$
+$1/.09$
+$11.11$
+\end{proof}
+                    \item (d) What is the expected number of arrows shot before the third bull’s-eye is scored?
+\begin{proof}
+3.2.5 D)
+$E[X] = r/p$
+$3/.09$
+$33.33$
+\end{proof}
+                \end{itemize}
+            \item A supply container dropped from an aircraft by parachute hits a target with a probability of 0.37. 
+                \begin{itemize}
+                    \item (a) What is the expected number of container drops needed to hit a target?
+\begin{proof}
+3.2.6 A)
+$E[X] = r/p$
+$ 1/.37$
+$2.7$
+\end{proof}
+                    \item (b) If hits from three containers are required to provide sufficient supplies, what is the expected number of containers dropped before sufficient supplies have been provided?
+\begin{proof}
+3.2.6 B)
+$E[X] = r/p$
+$3/.37$
+$8.1$
+\end{proof}
+                    \item (c) What is the probability that sufficient supplies are provided by ten container drops?
+                \end{itemize} 
+    \end{enumerate}
+1.
+\textbf{4.1} 
+Suppose that X ∼ U (−3, 8). Find:
+    \begin{itemize}
+        \begin{itemize}
+            \item (a) E(X)
+        \end{itemize}
+    \end{itemize}
+\begin{enumerate}
+    \begin{proof}
+    4.1.1 A)
+E(X)
+$(-3+8)/2$
+$2.5$
+    \end{proof}
+        \begin{itemize}
+            \item (b) The standard deviation of X
+        \end{itemize}
+    \begin{proof}
+    4.1.1 B)
+$\sigma = ((8-(-3)/\sqrt{12})$
+$\sigma = (11/\sqrt{12})$
+3.175
+    \end{proof}
+        \begin{itemize}
+            \item (c) The upper quartile of the distribution
+        \end{itemize}
+    \begin{proof}
+    4.1.1 C)
+$Q(q)=a+q(b-a)$
+$Q(.75)$
+$-3+.75(8-(-3))$
+$-3+.75*11$
+$-3*8.25$
+$5.25$    
+\end{proof}
+        \begin{itemize}
+            \item (d) $P(0<=X<=4)$
+        \end{itemize}
+    \begin{proof}
+    4.1.1 D)
+$P(X_{1}<=X<=X_{2}) = (X_{2}-X_{1})/(b-a)$
+$P(0<=X<=4) = (4-0)/(8-(-3)$
+$4/11$
+$.364$
+    \end{proof}
+2.
+ A new battery supposedly with a charge of 1.5 volts actually has a voltage with a uniform distribution between 1.43 and 1.60 volts.
+        \begin{itemize}
+            \item (a) What is the expectation of the voltage?
+        \end{itemize}
+    \begin{proof}
+4.1.2 A) 
+E(X) = (1.43+1.6)/2
+3.03/2
+1.515
+    \end{proof}
+        \begin{itemize}
+            \item  (b) What is the standard deviation of the voltage?
+        \end{itemize}
+\begin{proof}
+4.1.2 B)
+$\sigma = (1.6-1.43)/\sqrt{12}$
+.0491
+    \end{proof}
+        \begin{itemize}
+            \item (c) What is the cumulative distribution function of the voltage?
+        \end{itemize}
+    \begin{proof}
+4.1.2 C)
+$F(x) = (x-1.43)/(1.6-.143)$
+$(x-1.43)/.17$
+$1.43<=x<=1.6$
+    \end{proof}
+        \begin{itemize}
+            \item (d) What is the probability that a battery has a voltage less than 1.48 volts?
+        \end{itemize}
+    \begin{proof}
+4.1.2 D)
+$F(1.48) = (1.48-1.43)/.17$
+$.05/.17$
+$.2941$
+    \end{proof}
+        \begin{itemize}
+            \item (e) If a box contains 50 batteries, what are the expectation and variance of the number of batteries in the box with a voltage less than 1.5 volts?
+        \end{itemize}
+    \begin{proof}
+4.1.2 E)
+$F(1.5) = (1.5-1.43)/.17$
+$.07/.17$
+.412
+    \end{proof}
+        
+4. The lengths in meters of pieces of scrap wood found on a building site are uniformly distributed between 0.0 and 2.5.
+    \begin{itemize}
+            \item (a) What are the expectation and variance of the lengths?
+    \end{itemize}
+    \begin{proof}
+4.1.4 A)
+$E(X) = (a+b)/2$
+$Var(X) = ((b-a)^{2})/12$
+
+$E(X) = (0.0 + 2.5)/2$
+$2.5/2$
+1.25
+
+$Var(X) = ((2.5 - 0.0)^{2})/12$
+$2.5^{2}/12$
+$6.25/12$
+.5208    \end{proof}
+        \begin{itemize}
+            \item (b) What is the probability that at least 20 out of 25 pieces of scrap wood are longer than 1 meter?
+        \end{itemize}
+    \begin{proof}
+4.1.4 B)
+$P(X>1) = (2.5 - 1)/(2.5 - 0.0)$
+$1.5/2.5$
+.6
+   
+$P(Y>=20) = 1-P(Y<=19)$
+$1-.9706$
+$.029$
+\end{proof}
+\textbf{4.2}
+2. Suppose that you are waiting for a friend to call you can that the time you wait in minutes has an exponential distribution with parameter $\lambda$ = .1
+        \begin{itemize}
+            \item (a) What is the expectation of your waiting time?
+        \end{itemize}
+    \begin{proof}
+$E(X) = 1/\lambda$
+$\lambda = .1$
+1/.1 = 10
+
+10 Minutes
+    \end{proof}
+    \begin{itemize}
+        \item (b) Whats the probability that you'll wait longer than 10 minutes?
+    \end{itemize}
+\begin{proof}
+$X Exp(\lambda)$
+$P(X>t) = x^{-\lambda t}$
+$P(X>10) = e^{-.1*10}$
+$e^{-1} = .3679$
+
+Prob of Wait above 10 minutes = 36.79%
+    \end{proof}
+        \begin{itemize}
+            \item (c)  Suppose that after 5 minutes you are still waiting for the call. What is the distribution of your additional waiting time? In this case, what is the probability that your total waiting time is longer than 15 minutes?
+        \end{itemize}
+    \begin{proof}
+P(X>10 | X>5) = P(X>10-5)
+P(X>5) = $e^{-.1*5}$
+$e^{-.5} = .6065$
+Prob of Wait above 15 minutes = 60.65%
+    \end{proof}
+        \begin{itemize}
+            \item (b)  Suppose now that the time you wait in minutes for the call has a U (0, 20) distribution. What is the expectation of your waiting time? If after 5 minutes you are still waiting for the call, what is the distribution of your additional waiting time?
+        \end{itemize}
+\begin{proof}
+(0,20)
+$E(X) = (1+b)/2$
+$(0+20)/2 = 10$
+(5,20)
+$E(A) = (5+20)/2$
+12.5 Minutes
+    \end{proof}
+3. The time in days between break downs of a machine is exponentially distributed with λ = 0.2.
+        \begin{itemize}
+            \item (a) What is the expected time between machine breakdowns?
+        \end{itemize}
+    \begin{proof}
+$E(X)=1/\lambda$
+$1/.2 = 5$
+
+Expected Time Between = 5 days
+    \end{proof}
+    \begin{itemize}
+        \item (b) What is the standard deviation of the time between machine breakdowns?
+    \end{itemize}
+\begin{proof}
+$SD(X) = 1/\lambda = 5 days$
+    \end{proof}
+        \begin{itemize}
+            \item (c)   What is the median time between machine breakdowns?
+        \end{itemize}
+    \begin{proof}
+$M = (ln(2))/\lambda$
+$M = (ln(2))/.2$
+$.6931/.2$
+$3.4655$ Days
+
+\end{proof}
+        \begin{itemize}
+            \item (d)  What is the probability that after the machine is repaired it lasts at least a week before failing again?
+        \end{itemize}
+\begin{proof}
+$P(X>t)=e^{-\lambda t}$
+$P(X>7) = e^{-.2*7}$
+$e^{-1.4} = .2466$
+
+The probability of the machine failing is 24.66
+    \end{proof}
+    \begin{itemize}
+        \item (e)   If the machine has performed satisfactorily for six days, what is the probability that it lasts at least two more days before breaking down?
+    \end{itemize}
+\begin{proof}
+$P(X>2)= e^{-\lambda *2}$
+$e^{-.2*2} = e^{-.4}$
+.6703
+
+the probability that the machine lasts at least 2 more days after 6 is 67.03%
+    \end{proof}
+
+
+\begin{enumerate}
+\end{enumerate}
+\end{enumerate}
+  
+		
+\end{document}
